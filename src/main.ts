@@ -1,4 +1,4 @@
-import { Logger } from '@nestjs/common';
+import { Logger, VERSION_NEUTRAL, VersioningType } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import helmet from 'helmet';
@@ -19,6 +19,13 @@ async function bootstrap() {
   app.enableCors({
     origin: config.app.corsOrigin || 'http://localhost:3000',
     methods: config.app.corsMethods?.split(','),
+  });
+
+  // Enable Versioning
+  app.enableVersioning({
+    type: VersioningType.HEADER,
+    header: 'version',
+    defaultVersion: VERSION_NEUTRAL,
   });
 
   // Set up Swagger
