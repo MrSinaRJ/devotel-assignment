@@ -55,8 +55,8 @@ export const JobOfferRepository = (dataSource: DataSource) =>
       }
 
       if (filters.company) {
-        // Column 'company.name' maps to 'company_name' by TypeORM
-        query.andWhere('job.company_name ILIKE :company', {
+        // Column 'company.name' maps to 'companyName' by TypeORM
+        query.andWhere('job.companyName ILIKE :company', {
           company: `%${filters.company}%`,
         });
       }
