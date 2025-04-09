@@ -22,7 +22,7 @@ export class JobOffersService {
   async getById(id: number): Promise<JobOffer> {
     const job = await this._jobOfferRepository.findOne({ where: { id } });
     if (!job) {
-      this.logger.error(`JobOffer with id ${id} not found.`);
+      this.logger.debug(`JobOffer with id ${id} not found.`);
       throw new NotFoundException(`JobOffer with id ${id} not found.`);
     }
     return job;
