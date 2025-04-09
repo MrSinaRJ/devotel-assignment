@@ -1,3 +1,4 @@
+import configuration from '@config/configuration';
 import { DataSource } from 'typeorm';
 import { JobOfferDto } from '../dto/job-offer.dto';
 import { JobOffer } from '../entities/job-offer.entity';
@@ -66,17 +67,21 @@ export const JobOfferRepository = (dataSource: DataSource) =>
         });
       }
 
+      // Pagination
+      const finalPageSize = pageSize || configuration().pagination.size;
+      const finalPage = page || configuration().pagination.page;
+
       const [results, total] = await query
-        .skip((page - 1) * pageSize)
-        .take(pageSize)
+        .skip((finalPage - 1) * finalPageSize)
+        .take(finalPageSize)
         .orderBy('job.postDate', 'DESC')
         .getManyAndCount();
 
       return {
         data: results,
         total,
-        page,
-        size: pageSize,
+        page: finalPage,
+        size: finalPageSize,
       };
     },
   });

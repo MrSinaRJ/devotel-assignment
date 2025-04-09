@@ -4,10 +4,10 @@ export class Company {
   @Column()
   name!: string;
 
-  @Column({ nullable: true })
+  @Column({ nullable: true, type: 'varchar' }) // explicitly state type
   website!: string | null;
 
-  @Column({ nullable: true })
+  @Column({ nullable: true, type: 'varchar' })
   industry!: string | null;
 }
 
@@ -18,7 +18,7 @@ export class Compensation {
   @Column('float')
   max!: number;
 
-  @Column()
+  @Column({ type: 'varchar' })
   currency!: string;
 }
 

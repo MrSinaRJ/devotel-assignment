@@ -1,3 +1,4 @@
+import configuration from '@config/configuration';
 import { Transform, Type } from 'class-transformer';
 import {
   IsArray,
@@ -7,7 +8,6 @@ import {
   IsString,
   Min,
 } from 'class-validator';
-import configuration from '@config/configuration';
 
 export class JobOfferQueryDto {
   @IsOptional()
@@ -45,11 +45,11 @@ export class JobOfferQueryDto {
   @Type(() => Number)
   @IsInt()
   @Min(1)
-  page: number = configuration().pagination.page;
+  page!: number;
 
   @IsOptional()
   @Type(() => Number)
   @IsInt()
   @Min(1)
-  size: number = configuration().pagination.size;
+  size!: number;
 }
