@@ -28,6 +28,12 @@ import { ScraperModule } from './modules/scraper/scraper.module';
           database: pg.database,
           autoLoadEntities: true,
           synchronize: app.env === 'dev',
+          ssl: true,
+          extra: {
+            ssl: {
+              rejectUnauthorized: false,
+            },
+          },
         };
       },
     }),

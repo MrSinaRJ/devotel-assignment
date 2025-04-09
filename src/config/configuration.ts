@@ -30,7 +30,7 @@ const configuration = (): AppConfig => ({
     first: process.env.FIRST_PROVIDER_URL!,
     second: process.env.SECOND_PROVIDER_URL!,
   },
-  frequency: process.env.SCRAPE_CRON || '0 * * * *',
+  frequency: process.env.SCRAPE_CRON || '* * * * *',
   pagination: {
     page: parseInt(process.env.PAGE || '1', 10),
     size: parseInt(process.env.SIZE || '20', 10),
