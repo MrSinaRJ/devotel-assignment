@@ -1,4 +1,9 @@
-import { Logger, VERSION_NEUTRAL, VersioningType } from '@nestjs/common';
+import {
+  Logger,
+  ValidationPipe,
+  VERSION_NEUTRAL,
+  VersioningType,
+} from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import helmet from 'helmet';
@@ -27,6 +32,15 @@ async function bootstrap() {
     header: 'version',
     defaultVersion: VERSION_NEUTRAL,
   });
+
+  // Add Validation pipe
+  app.useGlobalPipes(
+    new ValidationPipe({
+      transform: true,
+      whitelist: true,
+      forbidNonWhitelisted: true,
+    }),
+  );
 
   // Set up Swagger
   const swaggerConfig = new DocumentBuilder()
