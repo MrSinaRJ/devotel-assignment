@@ -110,7 +110,7 @@ The API supports the following query parameters for filtering job offers:
 | `remote` | boolean | Filter by remote work possibility | `?remote=true` |
 | `position` | string | Filter by job position/title (case-insensitive, partial match) | `?position=Software Engineer` |
 | `company` | string | Filter by company name (case-insensitive, partial match) | `?company=Google` |
-| `skills` | string[] | Filter by required skills (comma-separated) | `?skills=JavaScript,React,Node.js` |
+| `skills` | string | Filter by required skills (comma-separated) | `?skills=JavaScript,React,Node.js` |
 | `page` | number | Page number for pagination (min: 1) | `?page=2` |
 | `size` | number | Number of items per page (min: 1) | `?size=20` |
 
