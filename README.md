@@ -204,7 +204,7 @@ The application uses environment variables for configuration:
 | `SECOND_PROVIDER_URL` | URL for the second job provider API | (required) |
 | `SCRAPE_CRON` | Cron expression for scheduled scraping | `* * * * *` (every minute) |
 | `PORT` | Application port | 3000 |
-| `NODE_ENV` | Environment (development, production, etc.) | development |
+| `NODE_ENV` | Environment (dev, prod, etc.) | dev |
 | `POSTGRESQL_HOST` | PostgreSQL host | (required) |
 | `POSTGRESQL_PORT` | PostgreSQL port | (required) |
 | `POSTGRESQL_USER` | PostgreSQL username | (required) |
